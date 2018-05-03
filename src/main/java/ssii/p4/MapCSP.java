@@ -24,6 +24,7 @@ public class MapCSP extends CSP {
   public static final Variable SA = new Variable("SA"); //$NON-NLS-1$
   public static final Variable T = new Variable("T"); //$NON-NLS-1$
   public static final Variable V = new Variable("V"); //$NON-NLS-1$
+  /** Otro estado más en Australia */
   public static final Variable WV = new Variable("WV"); //$NON-NLS-1$
   public static final Variable WA = new Variable("WA"); //$NON-NLS-1$
   /** Nuevo color naranjito añadido */
@@ -72,7 +73,11 @@ public class MapCSP extends CSP {
     addConstraint(new NotEqualConstraint(SA, V));
     addConstraint(new NotEqualConstraint(Q, NSW));
     addConstraint(new NotEqualConstraint(NSW, V));
-    // Añadida restricción
+    // Añadida restricción requerida
     addConstraint(new NotEqualConstraint(WA, V));
+    // Añadidas para no hallar solución
+    // addConstraint(new NotEqualConstraint(WA, Q));
+    // addConstraint(new NotEqualConstraint(NSW, WA));
+    // addConstraint(new NotEqualConstraint(NSW, NT));
   }
 }
